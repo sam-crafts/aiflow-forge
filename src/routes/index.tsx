@@ -197,11 +197,11 @@ function Index() {
           <img
             src={heroVisual}
             alt=""
-            className="h-full w-full object-cover opacity-90"
+            className="h-full w-full object-cover"
             width={1440}
             height={900}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background" />
         </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
