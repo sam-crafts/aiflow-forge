@@ -19,6 +19,8 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -26,7 +28,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Form,
   FormControl,
@@ -197,16 +198,16 @@ function Index() {
           <img
             src={heroVisual}
             alt=""
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover opacity-40"
             width={1440}
             height={900}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
         </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-4 py-1.5 text-sm font-medium text-muted-foreground shadow-sm">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-4 py-1.5 text-sm font-medium text-muted-foreground">
               <Sparkles className="h-4 w-4 text-primary" />
               <span>Free AI automation audit for new clients</span>
             </div>
@@ -232,7 +233,7 @@ function Index() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full border-border bg-surface-elevated px-8 text-base hover:bg-secondary"
+                className="rounded-full border-border bg-transparent px-8 text-base hover:bg-surface-elevated"
               >
                 <a href="#services">See how it works</a>
               </Button>
@@ -257,7 +258,7 @@ function Index() {
       </section>
 
       {/* Social Proof / Stats */}
-      <section className="border-y border-border bg-surface py-12">
+      <section className="border-y border-border bg-surface/50 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             <div className="text-center">
@@ -297,7 +298,7 @@ function Index() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+                className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:bg-surface-elevated"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-primary">
                   <feature.icon className="h-5 w-5" />
@@ -313,7 +314,7 @@ function Index() {
       </section>
 
       {/* Process */}
-      <section id="process" className="border-y border-border bg-surface py-24 lg:py-32">
+      <section id="process" className="border-y border-border bg-surface/50 py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
@@ -327,7 +328,7 @@ function Index() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((item) => (
               <div key={item.step} className="relative">
-                <div className="mb-4 text-5xl font-bold text-primary/15">{item.step}</div>
+                <div className="mb-4 text-5xl font-bold text-primary/20">{item.step}</div>
                 <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {item.description}
@@ -391,7 +392,7 @@ function Index() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-xl shadow-primary/5 sm:p-8 lg:p-10">
+            <div className="rounded-3xl border border-border bg-card p-6 shadow-2xl shadow-primary/5 sm:p-8 lg:p-10">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-success/10 text-success">
@@ -406,7 +407,7 @@ function Index() {
                   </p>
                   <Button
                     variant="outline"
-                    className="mt-8 rounded-full border-border hover:bg-secondary"
+                    className="mt-8 rounded-full border-border bg-transparent hover:bg-surface-elevated"
                     onClick={() => {
                       setSubmitted(false);
                       form.reset();
@@ -437,7 +438,7 @@ function Index() {
                                 <Input
                                   placeholder="Jane Doe"
                                   {...field}
-                                  className="h-11 rounded-xl border-border bg-secondary/50"
+                                  className="h-11 rounded-xl border-border bg-background/50"
                                 />
                               </FormControl>
                               <FormMessage />
@@ -455,7 +456,7 @@ function Index() {
                                   type="email"
                                   placeholder="jane@company.com"
                                   {...field}
-                                  className="h-11 rounded-xl border-border bg-secondary/50"
+                                  className="h-11 rounded-xl border-border bg-background/50"
                                 />
                               </FormControl>
                               <FormMessage />
@@ -475,7 +476,7 @@ function Index() {
                                 <Input
                                   placeholder="Acme Inc."
                                   {...field}
-                                  className="h-11 rounded-xl border-border bg-secondary/50"
+                                  className="h-11 rounded-xl border-border bg-background/50"
                                 />
                               </FormControl>
                               <FormMessage />
@@ -493,7 +494,7 @@ function Index() {
                                   type="url"
                                   placeholder="https://company.com"
                                   {...field}
-                                  className="h-11 rounded-xl border-border bg-secondary/50"
+                                  className="h-11 rounded-xl border-border bg-background/50"
                                 />
                               </FormControl>
                               <FormMessage />
@@ -511,7 +512,7 @@ function Index() {
                               <FormLabel>Company Size</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
-                                  <SelectTrigger className="h-11 rounded-xl border-border bg-secondary/50">
+                                  <SelectTrigger className="h-11 rounded-xl border-border bg-background/50">
                                     <SelectValue placeholder="Select company size" />
                                   </SelectTrigger>
                                 </FormControl>
@@ -537,7 +538,7 @@ function Index() {
                                 <Input
                                   placeholder="SaaS, E-commerce, Professional Services..."
                                   {...field}
-                                  className="h-11 rounded-xl border-border bg-secondary/50"
+                                  className="h-11 rounded-xl border-border bg-background/50"
                                 />
                               </FormControl>
                               <FormMessage />
@@ -557,7 +558,7 @@ function Index() {
                                 placeholder="We spend 20 hours a week manually moving data between our CRM and invoicing tool..."
                                 rows={4}
                                 {...field}
-                                className="resize-none rounded-xl border-border bg-secondary/50"
+                                className="resize-none rounded-xl border-border bg-background/50"
                               />
                             </FormControl>
                             <FormMessage />
@@ -592,7 +593,7 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-surface py-12">
+      <footer className="border-t border-border bg-surface/50 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
