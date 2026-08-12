@@ -413,12 +413,13 @@ function Index() {
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
                   <h3 className="mt-6 text-2xl font-semibold text-card-foreground">
-                    Audit request received
+                    Thanks! We'll contact you shortly.
                   </h3>
                   <p className="mt-2 max-w-sm text-muted-foreground">
                     We will review your challenge and send your personalized automation roadmap within 24
                     hours.
                   </p>
+
                   <Button
                     variant="outline"
                     className="mt-8 rounded-full border-border bg-transparent hover:bg-surface-elevated"
