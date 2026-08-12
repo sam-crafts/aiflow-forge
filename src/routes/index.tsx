@@ -133,8 +133,11 @@ const processSteps = [
   },
 ];
 
+const WEBHOOK_URL = "https://hook.us2.make.com/j1vg9jsl0cypxto3en5czytfxbb8ye3v";
+
 function Index() {
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -149,10 +152,21 @@ function Index() {
     },
   });
 
-  function onSubmit(values: FormValues) {
-    console.log("Lead form submitted:", values);
-    setSubmitted(true);
+  async function onSubmit(values: FormValues) {
+    setErrorMessage(null);
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, submittedAt: new Date().toISOString() }),
+      });
+      if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+      setSubmitted(true);
+    } catch {
+      setErrorMessage("Something went wrong. Please try again.");
+    }
   }
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -399,12 +413,13 @@ function Index() {
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
                   <h3 className="mt-6 text-2xl font-semibold text-card-foreground">
-                    Audit request received
+                    Thanks! We'll contact you shortly.
                   </h3>
                   <p className="mt-2 max-w-sm text-muted-foreground">
                     We will review your challenge and send your personalized automation roadmap within 24
                     hours.
                   </p>
+
                   <Button
                     variant="outline"
                     className="mt-8 rounded-full border-border bg-transparent hover:bg-surface-elevated"
@@ -565,6 +580,12 @@ function Index() {
                           </FormItem>
                         )}
                       />
+
+                      {errorMessage && (
+                        <p className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-center text-sm text-destructive">
+                          {errorMessage}
+                        </p>
+                      )}
 
                       <Button
                         type="submit"
