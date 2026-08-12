@@ -581,7 +581,13 @@ function Index() {
                         )}
                       />
 
-                      <Button
+                      {errorMessage && (
+                        <p className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-center text-sm text-destructive">
+                          {errorMessage}
+                        </p>
+                      )}
+
+
                         type="submit"
                         size="lg"
                         className="w-full rounded-xl text-base glow-primary"
