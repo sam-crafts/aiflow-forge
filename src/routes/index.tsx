@@ -352,10 +352,14 @@ function Index() {
       </section>
 
       {/* Lead Form Section */}
-      <section id="audit" className="py-24 lg:py-32">
+      <section id="audit" className="relative overflow-hidden py-24 lg:py-32">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="blob animate-drift right-[-8%] top-[10%] h-[24rem] w-[24rem] bg-warm/30" />
+          <div className="blob animate-drift left-[-6%] bottom-[5%] h-[22rem] w-[22rem] bg-primary/25 [animation-delay:-8s]" />
+        </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <div className="flex flex-col justify-center">
+            <Reveal className="flex flex-col justify-center">
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
                 Get your free AI audit
               </h2>
