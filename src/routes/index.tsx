@@ -293,7 +293,7 @@ function Index() {
       {/* Services / Features */}
       <section id="services" className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 max-w-3xl">
+          <Reveal className="mb-16 max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Everything you need to run on autopilot
             </h2>
@@ -301,48 +301,51 @@ function Index() {
               From intelligent document processing to autonomous customer support, we build the AI layer
               that makes your business faster and more consistent.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature) => (
-              <div
+            {features.map((feature, i) => (
+              <Reveal
                 key={feature.title}
-                className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:bg-surface-elevated"
+                delay={i * 100}
+                className="group card-lift rounded-2xl border border-border bg-card p-6 hover:border-primary/40"
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-primary">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
                   <feature.icon className="h-5 w-5" />
                 </div>
                 <h3 className="text-lg font-semibold text-card-foreground">{feature.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {feature.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Process */}
-      <section id="process" className="border-y border-border bg-surface/50 py-24 lg:py-32">
+      <section id="process" className="border-y border-border bg-surface py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
+          <Reveal className="mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               How we work
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground text-balance">
               A simple, transparent process designed to deliver working automations quickly.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((item) => (
-              <div key={item.step} className="relative">
-                <div className="mb-4 text-5xl font-bold text-primary/20">{item.step}</div>
+            {processSteps.map((item, i) => (
+              <Reveal key={item.step} delay={i * 120} className="group relative">
+                <div className="mb-4 bg-gradient-to-br from-primary to-warm bg-clip-text text-5xl font-bold text-transparent opacity-40 transition-opacity duration-300 group-hover:opacity-100">
+                  {item.step}
+                </div>
                 <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {item.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
