@@ -406,9 +406,12 @@ function Index() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-2xl shadow-primary/5 sm:p-8 lg:p-10">
+            <Reveal
+              delay={120}
+              className="rounded-3xl border border-border bg-card p-6 shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--color-foreground)_45%,transparent)] sm:p-8 lg:p-10"
+            >
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-success/10 text-success">
