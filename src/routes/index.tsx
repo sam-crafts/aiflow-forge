@@ -36,7 +36,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import heroVisual from "@/assets/hero-visual.jpg";
+import { Reveal } from "@/components/Reveal";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
@@ -207,53 +207,53 @@ function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src={heroVisual}
-            alt=""
-            className="h-full w-full object-cover opacity-40"
-            width={1440}
-            height={900}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+      <section className="relative overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="blob animate-drift left-[-10%] top-[-6rem] h-[26rem] w-[26rem] bg-primary/35" />
+          <div className="blob animate-drift left-[55%] top-[-4rem] h-[24rem] w-[24rem] bg-warm/35 [animation-delay:-6s]" />
+          <div className="blob animate-drift left-[20%] top-[14rem] h-[22rem] w-[22rem] bg-chart-3/25 [animation-delay:-12s]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background" />
         </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-4 py-1.5 text-sm font-medium text-muted-foreground">
-              <Sparkles className="h-4 w-4 text-primary" />
+            <div className="mb-6 inline-flex animate-fade-up items-center gap-2 rounded-full border border-border bg-surface-elevated/80 px-4 py-1.5 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur">
+              <Sparkles className="h-4 w-4 animate-pulse text-primary" />
               <span>Free AI automation audit for new clients</span>
             </div>
 
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl text-balance">
+            <h1 className="animate-fade-up text-4xl font-bold tracking-tight text-foreground [animation-delay:120ms] sm:text-5xl md:text-6xl lg:text-7xl text-balance">
               Automate Your Business{" "}
               <span className="gradient-text">With AI</span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl text-balance">
+            <p className="mx-auto mt-6 max-w-2xl animate-fade-up text-lg text-muted-foreground [animation-delay:240ms] sm:text-xl text-balance">
               We build AI workflows that save hours every week by connecting your favorite apps.
               Stop doing work software should handle.
             </p>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild size="lg" className="rounded-full px-8 text-base glow-primary">
+            <div className="mt-10 flex animate-fade-up flex-col items-center justify-center gap-4 [animation-delay:360ms] sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full px-8 text-base glow-primary transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
+              >
                 <a href="#audit">
                   Book Free Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full border-border bg-transparent px-8 text-base hover:bg-surface-elevated"
+                className="rounded-full border-border bg-transparent px-8 text-base transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-elevated"
               >
                 <a href="#services">See how it works</a>
               </Button>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+            <div className="mt-12 flex animate-fade-up flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground [animation-delay:480ms]">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-success" />
                 <span>No code required</span>
@@ -272,25 +272,20 @@ function Index() {
       </section>
 
       {/* Social Proof / Stats */}
-      <section className="border-y border-border bg-surface/50 py-12">
+      <section className="border-y border-border bg-surface py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-foreground sm:text-4xl">10k+</div>
-              <div className="mt-1 text-sm text-muted-foreground">Hours saved</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-foreground sm:text-4xl">150+</div>
-              <div className="mt-1 text-sm text-muted-foreground">Workflows deployed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-foreground sm:text-4xl">40+</div>
-              <div className="mt-1 text-sm text-muted-foreground">Tools integrated</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-foreground sm:text-4xl">98%</div>
-              <div className="mt-1 text-sm text-muted-foreground">Client retention</div>
-            </div>
+            {[
+              { value: "10k+", label: "Hours saved" },
+              { value: "150+", label: "Workflows deployed" },
+              { value: "40+", label: "Tools integrated" },
+              { value: "98%", label: "Client retention" },
+            ].map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 90} className="text-center">
+                <div className="text-3xl font-bold text-foreground sm:text-4xl">{stat.value}</div>
+                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
