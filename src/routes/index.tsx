@@ -660,15 +660,15 @@ function Index() {
               © {new Date().getFullYear()} AutoFlow AI. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
                 Privacy
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
+              </Link>
+              <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground">
                 Terms
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
+              </Link>
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>
