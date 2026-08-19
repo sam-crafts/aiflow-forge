@@ -69,7 +69,35 @@ export const Route = createFileRoute("/")({
           "We build AI workflows that save hours every week by connecting your favorite apps. Book a free consultation.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://aiflow-forge.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://aiflow-forge.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "AutoFlow AI",
+          url: "https://aiflow-forge.lovable.app/",
+          description:
+            "AI automation agency building AI workflows that connect business apps and save teams hours every week.",
+          serviceType: [
+            "AI workflow automation",
+            "Business process automation",
+            "App integration",
+            "AI consulting",
+          ],
+          areaServed: "Worldwide",
+          offers: {
+            "@type": "Offer",
+            name: "Free AI automation consultation",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        }),
+      },
     ],
   }),
   component: Index,
@@ -632,15 +660,15 @@ function Index() {
               © {new Date().getFullYear()} AutoFlow AI. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
                 Privacy
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
+              </Link>
+              <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground">
                 Terms
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
+              </Link>
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>
