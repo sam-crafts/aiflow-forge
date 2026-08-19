@@ -69,7 +69,35 @@ export const Route = createFileRoute("/")({
           "We build AI workflows that save hours every week by connecting your favorite apps. Book a free consultation.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://aiflow-forge.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://aiflow-forge.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "AutoFlow AI",
+          url: "https://aiflow-forge.lovable.app/",
+          description:
+            "AI automation agency building AI workflows that connect business apps and save teams hours every week.",
+          serviceType: [
+            "AI workflow automation",
+            "Business process automation",
+            "App integration",
+            "AI consulting",
+          ],
+          areaServed: "Worldwide",
+          offers: {
+            "@type": "Offer",
+            name: "Free AI automation consultation",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        }),
+      },
     ],
   }),
   component: Index,
