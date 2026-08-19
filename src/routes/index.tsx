@@ -613,13 +613,13 @@ function Index() {
                   </Form>
                 </>
               )}
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-surface/50 py-12">
+      <footer className="border-t border-border bg-surface py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
