@@ -632,9 +632,9 @@ function Index() {
 
                       <p className="text-center text-xs text-muted-foreground">
                         By submitting, you agree to our{" "}
-                        <a href="#" className="underline hover:text-foreground">
+                        <Link to="/privacy" className="underline hover:text-foreground">
                           Privacy Policy
-                        </a>
+                        </Link>
                         . No spam, ever.
                       </p>
                     </form>
